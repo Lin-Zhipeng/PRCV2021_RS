@@ -1,0 +1,30 @@
+.m-height{
+    height:400px;
+}
+.m-head{
+    padding-top: 80px !important;
+}
+.m-navbar{
+    margin-right: auto;
+}
+
+.news{
+    color:red;
+    /* font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif */
+    /* font-style: italic; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+@media only screen and (max-width: 768px) {
+    .m-height {
+        /* width: 100%; */
+        height: 230px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+    .m-head{
+        padding-top: 30px !important;
+    }
+    
+  }
