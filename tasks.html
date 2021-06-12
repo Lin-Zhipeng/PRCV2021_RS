@@ -117,16 +117,21 @@
         <div class="row">
             <div class="col-lg-10 col-md-10 mx-auto">
                 <h2>
-                    概述
+                    竞赛的目的与意义
                 </h2>
                 <p>
-                    遥感图像在智慧城市、精准农业、紧急救援、灾害评估、国防和公共安全等领域都有重要应用。 遥感图像解译是计算机视觉和遥感对地观测的交叉研究领域，故举办遥感图像解译竞赛帮助提高遥感图像解译技术的研究水平， 推动计算机视觉学科与遥感图像解译产业发展， 促进基于人工智能的遥感图像解译技术在遥感领域的应用。培养遥感图像智能解译人才。
+                    遥感图像在智慧城市、精准农业、紧急救援、灾害评估、国防和公共安全等领域都有重要应用。遥感图像解译是计算机视觉和遥感对地观测的交叉研究领域，举办遥感图像解译竞赛有助于提高遥感图像解译技术的研究水平，推动计算机视觉学科与遥感图像解译产业发展，促进基于人工智能的遥感图像解译技术在遥感领域的应用,培养遥感图像智能解译人才。
                 </p>
 
                 <h2>
-                    <b>任务</b>遥感图像语义变化检测
+                    <b>赛题：</b>遥感图像语义变化检测
                     <!--<strong>(Recommended)</strong> -->
                 </h2>
+                <!-- </br> -->
+                </br>
+                <h3>
+                    赛题描述
+                </h3>
                 <p>
                     遥感图像语义变化检测竞赛即利用同一地理位置前后两个成像时间的遥感图像作为输入，分析其光谱特征以及各地物空间位置分布，提取该地理位置中的变化像元并得到其变化类型。本项竞赛以包含典型地物覆盖变化的光学图像对作为处理对象，参赛队伍使用主办方提供的遥感图像数据进行语义变化检测处理，主办方依据评分标准对检测识别结果进行综合评价。
 
@@ -144,20 +149,26 @@
                     提交格式
                 </h3>
                 <p>
-                    参赛者需在测试图像对上的每个像素位置赋予变化与未变化两个类别，再对变化的像素位置赋予一对土地覆盖语义类别标签。最终需要提交一份zip格式的文件 <a href="example_Task1.zip">(example_Task.zip)</a> 包含所有的评估结果。结果输出为PNG格式的预测图像对，每个像素位置的语义变化类型由预测图像对中相应位置的一对颜色决定。PNG格式预测图像对标记要求如下:
+                    参赛者需在测试图像对上的每个像素位置赋予变化与未变化两个类别，提交结果的格式为PNG格式的建筑物变化图，每个像素位置的预测结果由数字表示，其中1代表发生建筑物变化，0代表未发生建筑物变化。
                 </p>
-                <div class="alert alert-secondary" role="alert" style="font-size:18px;font-style: italic;font-family:'Times New Roman', Times, serif">
+                <!-- <div class="alert alert-secondary" role="alert" style="font-size:18px;font-style: italic;font-family:'Times New Roman', Times, serif">
                     未变化：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(R:0,G:0,B:0)→(R:0,G:0,B:0)
                     <br> 水 体→建 筑 物：&nbsp; (R:0,G:0,B:255)→(R:128,G:0,B:0)
                     <br> ...
                     <br>树 木→建 筑 物：&nbsp; (R:0,G:255,B:0)→(R:128,G:0,B:0)
 
-                </div>
+                </div> -->
                 <h3>
                     评价指标
                 </h3>
                 <p>
-                    比赛初赛成绩主要采用SeK系数指标。首先基于土地覆盖变化类型的真实值与预测值计算混淆矩阵 (未变化类别对应首行首列)，剔除混淆矩阵对角线的第一个元素得到矩阵Q (大小为30 x 30)，再利用Kappa系数计算公式得到K<sup>'</sup>。同时，计算Q中正确提取的变化像素所占比例得到IoU<sup>'</sup>，最后根据公式SeK=e<sup>(IoU<sup>'</sup>-1)</sup>×K<sup>'</sup>得到SeK系数指标。SeK值越高，模型的语义变化检测结果越好，排名越高。比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。
+                    <!-- 比赛初赛成绩主要采用SeK系数指标。首先基于土地覆盖变化类型的真实值与预测值计算混淆矩阵 (未变化类别对应首行首列)，剔除混淆矩阵对角线的第一个元素得到矩阵Q (大小为30 x 30)，再利用Kappa系数计算公式得到K<sup>'</sup>。同时，计算Q中正确提取的变化像素所占比例得到IoU<sup>'</sup>，最后根据公式SeK=e<sup>(IoU<sup>'</sup>-1)</sup>×K<sup>'</sup>得到SeK系数指标。SeK值越高，模型的语义变化检测结果越好，排名越高。比赛决赛成绩将基于算法模型精度、效率、规模等指标加权，对算法模型性能进行综合评估与排名。 -->
+                    本次比赛成绩主要采用Overall Accuracy (OA)与mean Intersection Over Union (mIOU) 作为评价指标。首先基于建筑物变化检测的真实标签与预测结果，计算混淆矩阵<i>Q</i>:
+                    <img src="images/math_Q.png" alt="centered image" height="90"> <br>其中，True Positive (TP), False Positive (FP), True Negative (TN)和False Negative (FN)分别代表真阳性样本数，假阳性样本数，真阴性样本数以及假阴性样本数。随后计算得：
+                    <img src="images/oa.png" alt="centered image" height="70">
+                    <br>
+                    <img src="images/miou.png" alt="centered image" height="70"> <br> OA与mIOU值越高，模型的建筑物变化检测结果越好，排名越高。
+
                 </p>
                 <!-- <h2>
                     <b>Task2</b> - Detection with horizontal bounding boxes

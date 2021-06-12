@@ -142,20 +142,27 @@
             <div class="col-lg-10 col-md-10 mx-auto">
                 <h2 style="text-align:left; margin-bottom:10px; margin-top:20px; ">
                     遥感图像语义变化检测
-                </h2>
+                </h2><br>
+                <h3>数据规模
+                </h3>
                 <p style="text-align:justify">
                     <!-- DOTA-v1.5 is an updated version of <a href="https://captain-whu.github.io/DOTA">DOTA-v1.0</a>. Both of them use the 
                     same aerial images but DOTA-v1.5 has revised and updated the annotation of objects, where many small object instances about or below 10 pixels 
                     that were missed in DOTA-v1.0 have been additionally annotated. The categories of DOTA-v1.5 is also extended. -->
-                    语义变化检测竞赛数据来源于SECOND数据集。为确保数据的多样性，SECOND数据集从多个传感器平台收集了4662对尺寸为512 x 512的航空图像（PNG格式）。这些图像对分布在杭州，成都和上海等城市，并由专业的遥感数据专家小组进行像素级的地物类别标注（PNG格式）以确保标注的准确性。SECOND数据集主要包含涉及非植被地表，树木，低矮植被，水体，建筑物和游乐场等6类地物的30种土地覆盖变化类型（包括非变化）。值得注意的是，非植被地表（简称n.v.g. surface）主要包含不透水地表和荒地。通过对图像数据的随机采样，SECOND反映了土地覆盖类别变化类型的真实分布。本竞赛语义变化检测数据集部分样本及标注数据如图所示:
-
+                    <!-- 语义变化检测竞赛数据来源于SECOND数据集。为确保数据的多样性，SECOND数据集从多个传感器平台收集了4662对尺寸为512 x 512的航空图像（PNG格式）。这些图像对分布在杭州，成都和上海等城市，并由专业的遥感数据专家小组进行像素级的地物类别标注（PNG格式）以确保标注的准确性。SECOND数据集主要包含涉及非植被地表，树木，低矮植被，水体，建筑物和游乐场等6类地物的30种土地覆盖变化类型（包括非变化）。值得注意的是，非植被地表（简称n.v.g. surface）主要包含不透水地表和荒地。通过对图像数据的随机采样，SECOND反映了土地覆盖类别变化类型的真实分布。本竞赛语义变化检测数据集部分样本及标注数据如图所示: -->
+                    本次遥感图像变化检测竞赛数据来源于航天宏图信息技术股份有限公司提供的全国主要一线城市的多时相遥感影像以及SECOND数据集。全部图像数据共10000对，尺寸为512 x 512，主要分布于北京、上海、广州以及杭州等城市。为保证数据标注的准确性，变化标签由专家小组进行标注与整理（PNG格式）。其中用于比赛的数据统计如下：
+                    </br>
+                    <li>训练集：6000对图像 </li>
+                    <li>验证集：2000对图像</li>
+                    <li> 测试样本：2000对图像</li>
                 </p>
-
-                <div class="container">
-                    <img src="images/SECOND.png" class="img-rounded" alt="Cinque Terre" width="100%">
-                </div>
+                <h3>标注样例
+                </h3>
                 <p>
-                    训练验证测试划分如下： </br>训练集：2968幅图像 </br>验证集：847幅图像 </br> 测试样本：847幅图像
+                    本竞赛数据集主要包含涉及建筑物的地物变化，通过对图像数据的随机采样，竞赛数据集反映了城市建筑物变化的真实分布。本竞赛建筑物变化检测数据集部分样本及标注数据如下图所示。
+                    <div class="container">
+                        <img src="images/SECOND.png" class="img-rounded" alt="Cinque Terre" width="100%">
+                    </div>
 
                 </p>
 
